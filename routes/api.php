@@ -25,14 +25,13 @@ Route::get('/product/show/{id}', [\App\Http\Controllers\ProductController::class
 Route::get('/product/search/{name}', [\App\Http\Controllers\ProductController::class, 'search']);
 
 //Protect
-Route::group(['middleware'=>['auth:sanctum']], function(){
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/product/store', [\App\Http\Controllers\ProductController::class, 'store']);
     Route::post('/product/update/{id}', [\App\Http\Controllers\ProductController::class, 'update']);
     Route::delete('/product/delete/{id}', [\App\Http\Controllers\ProductController::class, 'destroy']);
 
     Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 });
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

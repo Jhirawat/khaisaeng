@@ -87,10 +87,9 @@ class ProductController extends Controller
     public function search($name)
     {
         $products = Product::where([
-            ['name', 'like', '%'.$name.'%'] 
+            ['name', 'like', '%' . $name . '%']
         ])->get();
 
         return $products;
     }
 }
-

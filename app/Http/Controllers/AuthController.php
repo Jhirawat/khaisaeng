@@ -23,7 +23,7 @@ class AuthController extends Controller
             'email' => $fields['email'],
             'password' => bcrypt($fields['password']),
         ]);
-        $token = $user->createToken('mychirawatshop')->plainTextToken;
+        $token = $user->createToken('khaisaengshop')->plainTextToken;
         $response = [
             'user' => $user,
             'token' => $token,
@@ -46,7 +46,7 @@ class AuthController extends Controller
                 'message' => 'Wrong Password',
             ]);
         }
-        $token = $user->createToken('mychirawatshop')->plainTextToken;
+        $token = $user->createToken('khaisaengshop')->plainTextToken;
         Auth::login($user);
         $response = [
             'user' => $user,

@@ -22,7 +22,7 @@ window.Vue = require('vue').default;
 Vue.component('home-component', require('./components/home.vue').default);
 Vue.component('admin-component', require('./components/admin.vue').default);
 Vue.component('create-component', require('./components/create.vue').default);
-Vue.component('welcome-component', require('./components/ExampleComponent.vue').default);
+Vue.component('welcome-component', require('./components/AppExam.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
