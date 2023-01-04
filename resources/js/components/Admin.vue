@@ -2,8 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <v-card
-        <div class="card border-warning mb-3" style="max-width: 80rem;">
+        <v-card></v-card><div class="card border-warning mb-3" style="max-width: 80rem;">
         <table class="table caption-top">
           <caption>
             <a href="/create" class="btn btn-primary">Create Product</a>
@@ -121,7 +120,6 @@
           </div>
         </div>
         </div>
-        ></v-card>
       </div>
     </div>
   </div>

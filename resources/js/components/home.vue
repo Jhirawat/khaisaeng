@@ -2,18 +2,17 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-16">
-        <div class="card border-warning mb-3" style="max-width: 80rem;">
-          <div class="card-header text-center"><h5 class="card-title">Facm Cat</h5></div>
+        <div class="card border" style="max-width: 400rem;">
           <div class="row">
             <div class="col" v-for="item in database" :key="item.id">
-              <div class="card text-white bg-dark mb-3" style="width: 25.6rem">
-                <img :src="item.image" class="card-img-top" alt="..." />
+              <div class="-white bg-card text " style="width: 25.6rem">
+                <img :src="item.image" class="card-img-top" width="18.75rem" height="400rem" />
                 <div class="card-body">
                   <h5 class="card-title text-truncate mt-2">{{ item.name }}</h5>
                   <p class="card-text text-truncate mt-2">
                     {{ item.description }}
                   </p>
-                  <p class="card-text">ราคา {{ item.price }} บาท</p>
+                  <p class="card-text"> ฿ {{ item.price }} </p>
                   <div class="text-center">
                     <button
                       type="button"
@@ -22,7 +21,7 @@
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
                     >
-                      ซื้อสินค้า
+                      ใส่ตระกร้า
                     </button>
                   </div>
                 </div>
@@ -52,7 +51,7 @@
                     </div>
                     <div class="container">
                       <p>{{ description }}</p>
-                      <p>ราคา {{ price }} บาท</p>
+                      <p> ราคา {{ price }} บาท </p>
                     </div>
                     <div class="modal-footer">
                       <button

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Top up UC</title>
+        <title>วิสาหกิจชุม กลุ่มเกษตรกรพัฒนาแปรรูปสตรอเบอรี่ บ้านแม่ยางห้า</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,10 +16,7 @@
         </style>
         <style>
 body {
-  background-image: url('https://i.pinimg.com/originals/ab/1c/e5/ab1ce5191b31039cca1f78a993b22dfa.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+    background-color: #F6C6C7;
 }
 </style>
 

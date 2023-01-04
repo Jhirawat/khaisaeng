@@ -5639,7 +5639,7 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col"
-  }, [_c("div", {
+  }, [_c("v-card"), _c("div", {
     staticClass: "card border-warning mb-3",
     staticStyle: {
       "max-width": "80rem"
@@ -5810,7 +5810,7 @@ var render = function render() {
         _vm.description = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(3)])])])])])]), _vm._v("\n      >")])])]);
+  }), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(3)])])])])])])], 1)])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -6070,18 +6070,18 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "col-md-16"
   }, [_c("div", {
-    staticClass: "card border-warning mb-3",
+    staticClass: "card border",
     staticStyle: {
-      "max-width": "80rem"
+      "max-width": "400rem"
     }
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
     staticClass: "row"
   }, _vm._l(_vm.database, function (item) {
     return _c("div", {
       key: item.id,
       staticClass: "col"
     }, [_c("div", {
-      staticClass: "card text-white bg-dark mb-3",
+      staticClass: "-white bg-card text rounded-xl",
       staticStyle: {
         width: "25.6rem"
       }
@@ -6089,7 +6089,8 @@ var render = function render() {
       staticClass: "card-img-top",
       attrs: {
         src: item.image,
-        alt: "..."
+        width: "18.75rem",
+        height: "400rem"
       }
     }), _vm._v(" "), _c("div", {
       staticClass: "card-body"
@@ -6099,7 +6100,7 @@ var render = function render() {
       staticClass: "card-text text-truncate mt-2"
     }, [_vm._v("\n                  " + _vm._s(item.description) + "\n                ")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v("ราคา " + _vm._s(item.price) + " บาท")]), _vm._v(" "), _c("div", {
+    }, [_vm._v(" ฿ " + _vm._s(item.price) + " ")]), _vm._v(" "), _c("div", {
       staticClass: "text-center"
     }, [_c("button", {
       staticClass: "btn btn-warning",
@@ -6113,7 +6114,7 @@ var render = function render() {
           return _vm.Dio(item.id);
         }
       }
-    }, [_vm._v("\n                    ซื้อสินค้า\n                  ")])])])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                    ใส่ตระกร้า\n                  ")])])])]), _vm._v(" "), _c("div", {
       staticClass: "modal fade",
       attrs: {
         id: "exampleModal",
@@ -6151,7 +6152,7 @@ var render = function render() {
       }
     })]), _vm._v(" "), _c("div", {
       staticClass: "container"
-    }, [_c("p", [_vm._v(_vm._s(_vm.description))]), _vm._v(" "), _c("p", [_vm._v("ราคา " + _vm._s(_vm.price) + " บาท")])]), _vm._v(" "), _c("div", {
+    }, [_c("p", [_vm._v(_vm._s(_vm.description))]), _vm._v(" "), _c("p", [_vm._v(" ราคา " + _vm._s(_vm.price) + " บาท ")])]), _vm._v(" "), _c("div", {
       staticClass: "modal-footer"
     }, [_c("button", {
       staticClass: "btn btn-danger",
@@ -6172,15 +6173,7 @@ var render = function render() {
     }, [_vm._v("\n                      ซื้อสินค้า\n                    ")])])])])])]);
   }), 0)])])])]);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "card-header text-center"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_vm._v("Facm Cat")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 

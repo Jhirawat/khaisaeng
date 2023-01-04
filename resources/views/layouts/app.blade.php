@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Farm Cat</title>
+    <title>วิสาหกิจชุม กลุ่มเกษตรกรพัฒนาแปรรูปสตรอเบอรี่ บ้านแม่ยางห้า</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,19 +21,21 @@
 </head>
 <style>
 body {
-  background-image: url('https://i.pinimg.com/736x/53/f2/2a/53f22a995ff5ce3258695cba1b0a6cbd.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+    background-color: #FBCCC2;
 }
 </style>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #ffffff;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                Farm Cat
-                </a>
+
+
+                
+                <img src="https://cdn.discordapp.com/attachments/799538881258979358/1055414370076729384/Red_Retro_Doodle_Strawberry_Original_Fruit_Logo_1_2.png"></a>
+
+        
+
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
