@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
 
-
 //Public
 Route::get('/product', [\App\Http\Controllers\ProductController::class, 'index']);
 Route::get('/product/show/{id}', [\App\Http\Controllers\ProductController::class, 'show']);

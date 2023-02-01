@@ -1,32 +1,26 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="row">
-                        <div
-                            class="col"
-                            v-for="item in database"
-                            :key="item.id"
-                        >
-                            <div class="card" style="width: 18rem">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col mb-3" v-for="item in database" :key="item.id">
+                        <div class="card rounded-4" style="width: 18rem">
+                            <div class="card-body">
                                 <img
                                     :src="item.image"
                                     class="card-img-top"
                                     width="18"
                                     height="400"
                                 />
-                                <div class="card-body">
-                                    <h5 class="card-title text-truncate mt-2">
-                                        {{ item.name }}
-                                    </h5>
-                                    <p class="card-text text-truncate mt-2">
-                                        {{ item.description }}
-                                    </p>
-                                    <p class="card-text">
-                                        ราคา {{ item.price }} ฿
-                                    </p>
-                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title text-truncate mt-2">
+                                    {{ item.name }}
+                                </h5>
+                                <p class="card-text text-truncate mt-2">
+                                    {{ item.description }}
+                                </p>
+                                <p class="card-text">ราคา {{ item.price }} ฿</p>
                             </div>
                         </div>
                     </div>
@@ -75,4 +69,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>

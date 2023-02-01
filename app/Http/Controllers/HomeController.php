@@ -39,6 +39,10 @@ class HomeController extends Controller
             return view('admin');
         }
     }
+    // public function admin()
+    // {
+    //     return view('admin');
+    // }
 
     public function admincreate()
     {
@@ -47,5 +51,22 @@ class HomeController extends Controller
         } else {
             return view('create');
         }
+    }
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function adminorder()
+    {
+        if (Auth::user()->email != 'admin@poomji.com') {
+            return redirect('/home');
+        } else {
+            return view('order');
+        }
+    }
+    public function order()
+    {
+        return view('order');
     }
 }

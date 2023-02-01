@@ -4,10 +4,11 @@
             <div class="col">
                 <table class="table caption-top">
                     <caption>
-                        <a href="/create" class="btn btn-primary"
+                        <a href="/create" class="btn btn-purple darken-3"
                             >Create Product</a
                         >
                     </caption>
+                    
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
