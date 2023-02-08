@@ -1,5 +1,22 @@
 @extends('layouts.app')
 
+@section('js')
+    <script>
+        function getData(data) {
+            let id = document.getElementById('id')
+            id.value = data.id;
+
+            let name = document.getElementById('name');
+            name.value = data.name;
+
+            let price = document.getElementById('price');
+            price.value = data.price;
+
+            let description = document.getElementById('description');
+            description.value = data.description;
+        }
+    </script>
+
 @section('content')
     {{-- <admin-component/> --}}
     <div class="container">
@@ -17,7 +34,7 @@
 
                         <a href="/orderadmin" class="btn  "
                             style="background-color: #ED9A0D;height: 37px;width: 120px;padding: 0; color:white;border-radius: 7px;">
-                             Product Order
+                            Product Order
                         </a>
 
                     </caption>
@@ -50,7 +67,7 @@
                                         แก้ไข
                                     </button> --}}
                                     <button type="button" class="btn " data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal" onclick="getData('{{ $item->id }}')"
+                                        data-bs-target="#exampleModal" onclick="getData({{ $item }})"
                                         style="background-color: #158c1d;height: 30px;width: 75px;padding: 0; color:white;border-radius: 7px;">
                                         <i class="feather icon-edit"></i>แก้ไข
                                     </button>
@@ -68,53 +85,12 @@
                                         style="background-color: #c00f35;height: 30px;width: 75px;padding: 0; color:white;border-radius: 7px;">
                                         <i class="feather icon-edit"></i>ลบ
                                     </button>
-
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {{-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" id="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">
-                                    Update Product
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
 
-                            <div class="modal-body">
-                                <form action="{{ route('admin.update') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="text" class="form-control" id="product-id" name="id">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="product-name" name="name">
-                                    <label for="image" class="form-label">Image</label>
-                                    <input type="text" class="form-control" id="product-image" name="image">
-                                    <label for="price" class="form-label">Price</label>
-                                    <input type="text" class="form-control" id="product-price" name="price">
-                                    <label for="description" class="form-label">Description</label>
-                                    <textarea class="form-control" id="product-description" rows="3"></textarea>
-                                    <br>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                            Close
-                                        </button>
-                                        <button type="submit" class="btn btn-success">
-                                            Save
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div> --}}
                 <!-- Scrollable modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -128,45 +104,34 @@
                             <div class="modal-body">
                                 <form action="{{ route('admin.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <input type="text" class="form-control" id="product-id" name="id">
+
+                                    <input type="text" id="id" name="id" class="hidden" />
+
+                                    {{-- <input type="text" class="form-control" id="product-id" name="id"> --}}
                                     <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="product-name" name="name">
+                                    <input type="text" class="form-control" id="name" name="name" />
+                                    {{--
                                     <label for="image" class="form-label">Image</label>
-                                    <input type="text" class="form-control" id="product-image" name="image">
+                                    <input type="text" class="form-control" id="product-image" name="image"> --}}
+                                    <label for="image" class="form-label">Image</label>
+                                    <input type="file" class="form-control" name="image" placeholder="Image URL" />
+
                                     <label for="price" class="form-label">Price</label>
-                                    <input type="text" class="form-control" id="product-price" name="price">
+                                    <input type="text" class="form-control" id="price" name="price" />
+
                                     <label for="description" class="form-label">Description</label>
-                                    <textarea class="form-control" id="product-description" rows="3"></textarea>
+                                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                                     <br>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @endsection
-    @section('scripts')
-        <script type="text/javascript">
-            $(document).ready(function getData(id) {
-                console.log('id')
-                var url = "{{ route('admin.show', ':id') }}";
-                $.get(url, function(data) {
-                    $('#exampleModal').modal('show');
-                    $('#product-id').val(data.id);
-                    console.log(data);
-                    // $("#product-image").val(data.image);
-                    $("#product-name").val(data.name);
-                    $("#product-description").val(data.description);
-                    $("#product-price").val(data.price);
-                })
-            })
-            // ('#close_modal').click(function(){
-            //     $('#exampleModalCenter').modal('hide');
-            // })
-        </script>
-    @endsection
+        @endsection

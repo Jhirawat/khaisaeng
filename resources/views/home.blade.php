@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('style')
     <style>
@@ -114,19 +114,9 @@
                                         {{ $item->description }}
                                     </p>
                                     <p class="card-text">ราคา {{ $item->price }} ฿</p>
-
-
-
-
-
                                     <div class="d-grid gap-2" role="toolbar" aria-label="Toolbar with button groups">
                                         <div class="btn-group mr-2" role="group" aria-label="First group">
-
                                             <div class="d-flex mb-4" style="max-width: 300px">
-
-
-
-
                                                 <div class="num-block skin-2">
                                                     <div class="num-in">
                                                         <span class="minus dis"></span>
@@ -134,23 +124,13 @@
                                                         <span class="plus"></span>
                                                     </div>
                                                 </div>
-
-
-
-
                                             </div>
-
-
-
-
                                             <button type="button" @click="Dio(item.id)" class="btn btn btn-lg btn-block"
                                                 type="submit"
                                                 style="background-color: #9c6d5a;height: 40px;width: 50px;padding: 0; color:white;border-radius: 25px;"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 ใส่ตระกร้า
                                             </button>
-
-
 
                                         </div>
                                     </div>
@@ -195,4 +175,4 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection --}}

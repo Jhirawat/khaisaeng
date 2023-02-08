@@ -106,17 +106,49 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $id = $request->id;
 
         $product = Product::find($id);
         //dd($product);
-        $product->name = $request->name;
-        $product->image = $request->image;
-        $product->price = $request->price;
-        $product->description = $request->description;
-        $product->save();
+
+        if ($request->name) {
+            $product->name = $request->name;
+        }
+
+        if ($request->image) {
+            $image = $request->file('image');
+
+            $extention = $image->getClientOriginalExtension();
+
+            $fileName  = time() . '.' . $extention;
+
+            $location = 'images/' . $fileName;
+
+            $img = Image::make($image);
+
+            $img->resize(500, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $img->save($location);
+
+            $product->image =  $fileName;
+        }
+
+        if ($request->price) {
+            $product->price = $request->price;
+        }
+
+        if ($request->description) {
+            $product->description = $request->description;
+        }
+
+        $product->update();
+
+        // return redirect()->route('admin')->with('success', 'บันทึกสำเสร็จ');
+        return redirect()->route('adminhome');
     }
 
     /**
@@ -138,5 +170,12 @@ class ProductController extends Controller
         ])->get();
 
         return $products;
+    }
+    public function productList()
+    { {
+            $productss = Product::all();
+
+            return view('product', compact('productss'));
+        }
     }
 }

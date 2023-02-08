@@ -17,7 +17,15 @@
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css” />
 
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Add to cart</title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
@@ -30,8 +38,12 @@
 
     <body>
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #ffffff;">
+            <nav class="navbar navbar-expand-md navbar-light  shadow-sm" data-spy="affix" data-offset-top="197" style="background-color: #ffffff;">
                 <div class="container">
+
+                    {{-- <div id="app">
+                        <nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm" data-spy="affix" data-offset-top="197" style="background-color: #ffffff;">
+                            <div class="container"> --}}
 
 
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -66,12 +78,22 @@
 
 
 
-                                @if (Route::has('/cart'))
+                                {{-- @if (Route::has('cart'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('/cart') }}"> <i class="bi bi-cart3"
+                                        <a class="nav-link" href="{{ route('cart') }}"> <i class="bi bi-cart3"
                                                 style="font-size: 20px; color: #865846;"></i> </a>
                                     </li>
-                                @endif
+                                @endif --}}
+
+                                <a href="{{ route('cart.list') }}" class="flex items-center">
+                                    <svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" style="font-size: 20px; color: #865846;">
+                                        <path
+                                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                    {{ Cart::getTotalQuantity() }}
+                                </a>
 
 
 

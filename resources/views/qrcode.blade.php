@@ -1,131 +1,7 @@
 @extends('layouts.app')
 
-
-@section('style')
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            height: 100%;
-        }
-
-        p {
-            color: grey;
-        }
-
-        #heading {
-            text-transform: uppercase;
-            color: #cb724e;
-            font-weight: normal;
-        }
-
-        #msform {
-            text-align: center;
-            position: relative;
-            margin-top: 20px;
-        }
-
-        #msform fieldset {
-            background: white;
-            border: 0 none;
-            border-radius: 0.5rem;
-            box-sizing: border-box;
-            width: 100%;
-            margin: 0;
-            padding-bottom: 20px;
-
-            /*stacking fieldsets above each other*/
-            position: relative;
-        }
-
-        .form-card {
-            text-align: left;
-        }
-
-
-
-        #msform input,
-        #msform textarea {
-            padding: 8px 15px 8px 15px;
-            border: 1px solid #ccc;
-            border-radius: 0px;
-            margin-bottom: 25px;
-            margin-top: 2px;
-            width: 100%;
-            box-sizing: border-box;
-            font-family: montserrat;
-            color: #2C3E50;
-            background-color: #ECEFF1;
-            font-size: 16px;
-            letter-spacing: 1px;
-        }
-
-
-
-        /*Next Buttons*/
-        #msform .action-button {
-            width: 100px;
-            background: #cb724e;
-            font-weight: bold;
-            color: white;
-            border: 0 none;
-            border-radius: 0px;
-            cursor: pointer;
-            padding: 10px 5px;
-            margin: 10px 0px 10px 5px;
-            float: right;
-        }
-
-
-
-        /*Previous Buttons*/
-        #msform .action-button-previous {
-            width: 100px;
-            background: #675d59;
-            font-weight: bold;
-            color: white;
-            border: 0 none;
-            border-radius: 0px;
-            cursor: pointer;
-            padding: 10px 5px;
-            margin: 10px 5px 10px 0px;
-            float: right;
-        }
-
-        /*The background card*/
-        .card {
-            z-index: 0;
-            border: none;
-            position: relative;
-        }
-
-        /*FieldSet headings*/
-        .fs-title {
-            font-size: 25px;
-            color: #cb724e;
-            margin-bottom: 15px;
-            font-weight: normal;
-            text-align: left;
-        }
-
-        .fieldlabels {
-            color: gray;
-            text-align: left;
-        }
-
-
-
-
-    </style>
-
-
-
-
 @section('js')
-{{-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
         $(document).ready(function() {
 
@@ -214,53 +90,72 @@
     </script>
 
 @section('content')
-
-    <div class="container-fluid">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
-                <div class="card px-0 pt-4 pb-0 mt-3 mb-3"style="border-radius: 30px;">
-                    <h2 id="heading">QRcode ชำระเงิน</h2>
-                    <p>โปรดสแกนเพื่อชำระเงินและอัพโหลดสลิป</p>
+            <div class="col-md-8">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="card bg-white text-white" style="border-radius: 2rem;">
+                        <div class="card-body p-5 text-center">
+                            <div class="mb-md-5 mt-md-4 pb-5">
 
-                    <form id="msform">
+                                <h2 class="text-dark fw-bold mb-2 text-uppercase">QRcode ชำระเงิน</h2>
+                                <p class="text-dark mb-5">โปรดสแกนเพื่อชำระเงินและอัพโหลดสลิป</p>
+                                <div class="card-body">
 
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col">
 
-                                    <img src="https://media.discordapp.net/attachments/799534657523154967/1070204450083455016/320536374_514244424134923_4636217947386253321_n.jpg?width=481&height=701"
-                                        style=" height: 550
-                                        width: 200"></a>
+                                    <center> <img
+                                            src="https://media.discordapp.net/attachments/799534657523154967/1070204450083455016/320536374_514244424134923_4636217947386253321_n.jpg?width=481&height=701"
+                                            style="height: 450px; width: 300px;"></a></center>
 
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <br>
-
-                        <fieldset>
-                            <div class="form-card">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="fs-title">อัพโหลดรูป:</h2>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                            role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
+                                    <br>
 
+
+                                    <div class="form-card">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h2 class="fs-title">อัพโหลดรูป:</h2>
+                                            </div>
+                                            <label for="image" class="form-label">กรุณาอัพโหลดสลิป
+                                                เพื่อยืนยันการชำระเงิน</label>
+                                            <input type="file" class="form-control" name="image"
+                                                placeholder="Image URL" />
+                                        </div>
+                                    </div>
+                                    {{-- <label class="fieldlabels">กรุณาอัพโหลดสลิป เพื่อยืนยันการชำระเงิน</label>
+                                            <input type="file" name="pic" accept="image/*"
+                                                style="border-radius: 15px;"> --}}
                                 </div>
-                                <label class="fieldlabels">กรุณาอัพโหลดสลิป เพื่อยืนยันการชำระเงิน</label>
-                                <input type="file" name="pic" accept="image/*" style="border-radius: 15px;">
+                                {{-- <input type="button" name="next" class="next action-button" value="Submit"
+                                            style="border-radius: 15px;" />
+                                        <input type="button" name="previous" class="previous action-button-previous"
+                                            value="Previous" style="border-radius: 15px;" /> --}}
+
+                                <a href="/pay" type="button" name="previous" class="previous action-button-previous"
+                                    style="background-color: #c8887e;height: 30px;width: 120px;padding: 0; color:white;border-radius: 7px;">
+                                    กลับ
+                                </a>
+
+                                <a href="/order" type="button" name="next" class="next action-button" value="Submit"
+                                    style="background-color: #877EC8;height: 30px;width: 120px;padding: 0; color:white;border-radius: 7px;">
+                                    ถัดไป
+                                </a>
+
+
+
+
+
                             </div>
-                            <input type="button" name="next" class="next action-button" value="Submit" style="border-radius: 15px;" />
-                            <input type="button" name="previous" class="previous action-button-previous"
-                                value="Previous" style="border-radius: 15px;" />
-                        </fieldset>
-                    </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+    </div>
 @endsection
+

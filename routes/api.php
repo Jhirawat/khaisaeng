@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\TambonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+
 //API Auth
 Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
@@ -22,6 +29,17 @@ Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
 Route::get('/product', [\App\Http\Controllers\ProductController::class, 'index']);
 Route::get('/product/show/{id}', [\App\Http\Controllers\ProductController::class, 'show']);
 Route::get('/product/search/{name}', [\App\Http\Controllers\ProductController::class, 'search']);
+//API tambon
+Route::get('/provinces', [\App\Http\Controllers\API\TambonController::class, 'getProvinces']);
+Route::get('/amphoes', [\App\Http\Controllers\API\TambonController::class, 'getAmphoes']);
+Route::get('/tambons', [\App\Http\Controllers\API\TambonController::class, 'getTambons']);
+Route::get('/zipcodes', [\App\Http\Controllers\API\TambonController::class, 'getZipcodes']);
+
+// //API Amphoes
+// Route::get('/provinces', [\App\Http\Controllers\API\DistrictsController::class, 'getProvinces']);
+// Route::get('/amphoes', [\App\Http\Controllers\API\DistrictsController::class, 'getAmphoes']);
+// Route::get('/tambons', [\App\Http\Controllers\API\DistrictsController::class, 'getTambons']);
+// Route::get('/zipcodes', [\App\Http\Controllers\API\DistrictsController::class, 'getZipcodes']);
 
 //Protect
 Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -34,3 +52,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
