@@ -259,7 +259,55 @@
                     <div class="card bg-white text-dark" style="border-radius: 2rem;">
                         <div class="card-body p-5 text-center">
                             {{-- <div class="card px-4"> --}}
-                          
+                            <div class=" my-3">
+                                <p class="h8">ชำระเงิน</p>
+                                <p class="text-muted ">เลือก วิธีการชำระเงิน</p>
+                            </div>
+
+                            <div class="card-body p-5 text-center" >
+                                
+                                <div class="debit-card mb-3">
+                                    <div class="d-flex flex-column h-100">
+                                        <label class="d-block">
+                                            <div class="d-flex position-relative">
+                                                <div>
+
+                                                    <p class="mt-2 mb-4 text-white fw-bold">ชำระเงิน ปลายทาง</p>
+                                                </div>
+                                                <div class="input">
+                                                    <input type="radio" name="cash" id="check">
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <div>
+                                            <i class="bi bi-cash-stack" style='font-size:100px'></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="debit-card card-2 mb-4">
+                                    <div class="d-flex flex-column h-100">
+                                        <label class="d-block">
+                                            <div class="d-flex position-relative">
+                                                <div>
+
+                                                    <p class="text-white fw-bold">ขำระเงิน คิวอาร์โค้ด</p>
+                                                </div>
+                                                <div class="input">
+                                                    <input type="radio" name="card" id="check">
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <div>
+                                            <i class="bi bi-qr-code-scan" style='font-size:100px'></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
 
 
@@ -460,11 +508,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class=" my-3">
-                                <p class="h8"> วิธีการชำระเงิน </p>
 
-                            </div>
-                            
 
                                        
                                     </fieldset>
