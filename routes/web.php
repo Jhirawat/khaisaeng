@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('/home');
+Route::get('/home', [App\Http\Controllers\ProductController::class, 'productList'])->name('products.list');
 
 Auth::routes();
 

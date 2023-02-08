@@ -235,18 +235,15 @@
                             @foreach ($cartItems as $item)
                                 <tr>
                                     <td class="hidden pb-4 md:table-cell">
-                                        <a href="#">
-                                            <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
-
-                                            {{-- <img src="{{ asset('images/' . $item->image) }}" class="card-img-top"
-                                            style="max-width: 50px;max-height: 150px" /> --}}
-                                        </a>
+                                        
+                                            <img src="{{ asset('images/' . $item->attributes->image) }}" class="w-20 rounded" alt="Thumbnail">
+                                        
                                     </td>
                                     <td>
-                                        <a href="#">
+                                        
                                             <p class="mb-2 md:ml-4">{{ $item->name }}</p>
 
-                                        </a>
+                                        
                                     </td>
                                     <td class="justify-center mt-6 md:justify-end md:flex">
                                         <div class="h-10 w-28">
@@ -324,7 +321,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <a href="/ " type="button" class="btn "
                                     style="background-color: #8b8f2b;height: 30px;width: 120px;padding: 0; color:white;border-radius: 7px;">
-                                    ถัดไป
+                                    ย้อนกลับ
                                 </a>
 
 
@@ -340,7 +337,7 @@
 
                                 <a href="/pay" type="button" class="btn "
                                     style="background-color: #877EC8;height: 30px;width: 120px;padding: 0; color:white;border-radius: 7px;">
-                                    ถัดไป
+                                    ชำระเงิน
                                 </a>
 
                             </div>
