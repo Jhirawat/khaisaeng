@@ -139,6 +139,10 @@
 
 
 @section('content')
+<link rel="stylesheet" href="https://cdn.tailwindcss.com/3.0.12">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -151,9 +155,8 @@
                                 <p class="text-muted ">เลือก วิธีการชำระเงิน</p>
                             </div>
 
-
-                            <div class="card-body p-5 text-center">
-
+                            <div class="card-body p-5 text-center" >
+                                
                                 <div class="debit-card mb-3">
                                     <div class="d-flex flex-column h-100">
                                         <label class="d-block">
@@ -163,7 +166,7 @@
                                                     <p class="mt-2 mb-4 text-white fw-bold">ชำระเงิน ปลายทาง</p>
                                                 </div>
                                                 <div class="input">
-                                                    <input type="radio" name="card" id="check">
+                                                    <input type="radio" name="cash" id="check">
                                                 </div>
                                             </div>
                                         </label>
@@ -227,18 +230,7 @@
 
 
 
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label"></label>
-                                            <label class="col-md-4 control-label"></label>
-                                            <div class="col-md-4">
-
-                                                <a href="/qrcode" class="btn  "
-                                                    style="background-color: #ED9A0D;height: 37px;width: 120px;padding: 0; color:white;border-radius: 7px;">
-                                                    ถัดไป
-                                                </a>
-                                            </div>
-                                        </div>
-
+                                       
                                     </fieldset>
                                 </form>
                             </div>
