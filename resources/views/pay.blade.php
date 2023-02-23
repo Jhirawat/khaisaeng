@@ -156,7 +156,7 @@
                             </div>
 
                             <div class="card-body p-5 text-center" >
-                                
+
                                 <div class="debit-card mb-3">
                                     <div class="d-flex flex-column h-100">
                                         <label class="d-block">
@@ -230,7 +230,7 @@
 
 
 
-                                       
+
                                     </fieldset>
                                 </form>
                             </div>
@@ -246,3 +246,4 @@
     </div>
 
 @endsection
+
