@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('tambons', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-
             $table->string('tambon')->nullable();
             $table->string('amphoe')->nullable();
             $table->string('province')->nullable();

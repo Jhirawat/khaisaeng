@@ -129,122 +129,13 @@
 @section('js')
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#contact_form').bootstrapValidator({
-                    // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-                    feedbackIcons: {
-                        valid: 'glyphicon glyphicon-ok',
-                        invalid: 'glyphicon glyphicon-remove',
-                        validating: 'glyphicon glyphicon-refresh'
-                    },
-                    fields: {
-                        phone: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please supply your phone number'
-                                },
-                                phone: {
-                                    country: 'US',
-                                    message: 'Please supply a vaild phone number with area code'
-                                }
-                            }
-                        },
-                        address: {
-                            validators: {
-                                stringLength: {
-                                    min: 8,
-                                },
-                                notEmpty: {
-                                    message: 'Please supply your street address'
-                                }
-                            }
-                        },
-                        district: {
-                            validators: {
-                                stringLength: {
-                                    min: 8,
-                                },
-                                notEmpty: {
-                                    message: 'Please supply your district'
-                                }
-                            }
-                        },
-                        city: {
-                            validators: {
-                                stringLength: {
-                                    min: 4,
-                                },
-                                notEmpty: {
-                                    message: 'Please supply your city'
-                                }
-                            }
-                        },
-                        state: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please select your state'
-                                }
-                            }
-                        },
-                        zip: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please supply your zip code'
-                                },
-                                zipCode: {
-                                    country: 'US',
-                                    message: 'Please supply a vaild zip code'
-                                }
-                            }
-                        },
-                        comment: {
-                            validators: {
-                                stringLength: {
-                                    min: 10,
-                                    max: 200,
-                                    message: 'Please enter at least 10 characters and no more than 200'
-                                },
-                                notEmpty: {
-                                    message: 'Please supply a description of your project'
-                                }
-                            }
-                        }
-                        phone: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'Please supply your phone number'
-                                },
-                                phone: {
-                                    country: 'US',
-                                    message: 'Please supply a vaild phone number with area code'
-                                }
-                            }
-                        }
-                    }
-                })
-                .on('success.form.bv', function(e) {
-                    $('#success_message').slideDown({
-                        opacity: "show"
-                    }, "slow") // Do something ...
-                    $('#contact_form').data('bootstrapValidator').resetForm();
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
 
-                    // Prevent form submission
-                    e.preventDefault();
-
-                    // Get the form instance
-                    var $form = $(e.target);
-
-                    // Get the BootstrapValidator instance
-                    var bv = $form.data('bootstrapValidator');
-
-                    // Use Ajax to submit form data
-                    $.post($form.attr('action'), $form.serialize(), function(result) {
-                        console.log(result);
-                    }, 'json');
-                });
-        });
+        document.getElementById("current-date").textContent = dd + '/' + mm + '/' + yyyy;
     </script>
-
 
 
 @section('content')
@@ -304,9 +195,18 @@
                                     </div>
                                 </div>
 
+
+
+
+
+
+
+
+
+
                             </div>
 
-
+                            <p>วันที่: <span id="current-date"></span></p>
 
                             <div class=" my-3">
                                 <p class="h8">ที่อยู่ในการจัดส่ง </p>
@@ -325,186 +225,6 @@
 
                                         <!-- Text input-->
 
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label">บ้านเลขที่</label>
-                                            <div class="col-md-4 inputGroupContainer">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i
-                                                            class="glyphicon glyphicon-user"></i></span>
-                                                    <input name="address" placeholder="บ้านเลขที่" class="form-control"
-                                                        type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Text input-->
-
-
-
-                                        <!-- Text input-->
-
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label">ตำบล</label>
-                                            <div class="col-md-4 inputGroupContainer">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i
-                                                            class="glyphicon glyphicon-earphone"></i></span>
-                                                    <input name="district" placeholder="ตำบล" class="form-control"
-                                                        type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Text input-->
-
-
-
-                                        <!-- Text input-->
-
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label">อำเภอ</label>
-                                            <div class="col-md-4 inputGroupContainer">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i
-                                                            class="glyphicon glyphicon-home"></i></span>
-                                                    <input name="city" placeholder="อำเภอ" class="form-control"
-                                                        type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                        <!-- Select Basic -->
-
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label">จังหวัด</label>
-                                            <div class="col-md-4 selectContainer">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i
-                                                            class="glyphicon glyphicon-list"></i></span>
-                                                    <select name="state" class="form-control selectpicker">
-                                                        <option value=" ">เลือกจังหวัด</option>
-                                                        <option>นครราชสีมา</option>
-                                                        <option>เชียงใหม่</option>
-                                                        <option>กาญจนบุรี</option>
-                                                        <option>ตาก</option>
-                                                        <option>อุบลราชธานี</option>
-                                                        <option>สุราษฎร์ธานี</option>
-                                                        <option>ชัยภูมิ</option>
-                                                        <option>แม่ฮ่องสอน</option>
-                                                        <option>เพชรบูรณ์</option>
-                                                        <option>ลำปาง</option>
-                                                        <option>อุดรธานี</option>
-                                                        <option>เชียงราย</option>
-                                                        <option>น่าน</option>
-                                                        <option>เลย</option>
-                                                        <option>ขอนแก่น</option>
-                                                        <option>พิษณุโลก</option>
-                                                        <option>บุรีรัมย์</option>
-                                                        <option>นครศรีธรรมราช</option>
-                                                        <option>สกลนคร</option>
-                                                        <option>นครสวรรค์</option>
-                                                        <option>ศรีสะเกษ</option>
-                                                        <option>กำแพงเพชร</option>
-                                                        <option>ร้อยเอ็ด</option>
-                                                        <option>สุรินทร์</option>
-                                                        <option>อุตรดิตถ์</option>
-                                                        <option>สงขลา</option>
-                                                        <option>สระแก้ว</option>
-                                                        <option>กาฬสินธุ์</option>
-                                                        <option>อุทัยธานี</option>
-                                                        <option>สุโขทัย</option>
-                                                        <option>แพร่</option>
-                                                        <option>ประจวบคีรีขันธ์</option>
-                                                        <option>จันทบุรี</option>
-                                                        <option>พะเยา</option>
-                                                        <option>เพชรบุรี</option>
-                                                        <option>ลพบุรี</option>
-                                                        <option>ชุมพร</option>
-                                                        <option>นครพนม</option>
-                                                        <option>สุพรรณบุรี</option>
-                                                        <option>ฉะเชิงเทรา</option>
-                                                        <option>มหาสารคาม</option>
-                                                        <option>ราชบุรี</option>
-                                                        <option>ตรัง</option>
-                                                        <option>ปราจีนบุรี</option>
-                                                        <option>กระบี่</option>
-                                                        <option>พิจิตร</option>
-                                                        <option>ยะลา</option>
-                                                        <option>ลำพูน</option>
-                                                        <option>นราธิวาส</option>
-                                                        <option>ชลบุรี</option>
-                                                        <option>มุกดาหาร</option>
-                                                        <option>บึงกาฬ</option>
-                                                        <option>พังงา</option>
-                                                        <option>ยโสธร</option>
-                                                        <option>หนองบัวลำภู</option>
-                                                        <option>สระบุรี</option>
-                                                        <option>ระยอง</option>
-                                                        <option>พัทลุง</option>
-                                                        <option>ระนอง</option>
-                                                        <option>ระนอง</option>
-                                                        <option>อำนาจเจริญ</option>
-                                                        <option>หนองคาย</option>
-                                                        <option>ตราด</option>
-                                                        <option>พระนครศรีอยุธยา</option>
-                                                        <option>ชัยนาท</option>
-                                                        <option>นครปฐม</option>
-                                                        <option>นครนายก</option>
-                                                        <option>ปัตตานี</option>
-                                                        <option>กรุงเทพมหานคร</option>
-                                                        <option>ปทุมธานี</option>
-                                                        <option>สมุทรปราการ</option>
-                                                        <option>อ่างทอง</option>
-                                                        <option>สมุทรสาคร</option>
-                                                        <option>นนทบุรี</option>
-                                                        <option>ภูเก็ต</option>
-                                                        <option>สมุทรสงคราม</option>
-                                                        <option>สิงห์บุรี</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Text input-->
-
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label">รหัสไปรษณีย์</label>
-                                            <div class="col-md-4 inputGroupContainer">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i
-                                                            class="glyphicon glyphicon-home"></i></span>
-                                                    <input name="zip" placeholder="รหัสไปรษณีย์" class="form-control"
-                                                        type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label">รายละเอียดที่อยู่ที่ในการจัดส่ง</label>
-                                            <div class="col-md-4 inputGroupContainer">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i
-                                                            class="glyphicon glyphicon-globe"></i></span>
-                                                    <input name="website" placeholder="ห้อง ชั้น  " class="form-control"
-                                                        type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label">หมายเลขโทรศัพท์</label>
-                                            <div class="col-md-4 inputGroupContainer">
-                                                <div class="input-group">
-                                                    <span class="input-group-addon"><i
-                                                            class="glyphicon glyphicon-globe"></i></span>
-                                                    <input name="phone" placeholder="(+66)15650861  "
-                                                        class="form-control" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
 
 
                                         <div class="form-group">

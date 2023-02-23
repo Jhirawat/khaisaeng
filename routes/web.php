@@ -40,6 +40,9 @@ Route::get('/order', [App\Http\Controllers\OrderController::class, 'index'])->na
 Route::get('/tracking', [App\Http\Controllers\TrackingController::class, 'index'])->name('tracking');
 Route::get('/qrcode', [App\Http\Controllers\QRcodeController::class, 'index'])->name('qrcode');
 Route::get('/listadmin', [App\Http\Controllers\ListAdminController::class, 'index'])->name('listadmin');
+Route::get('/dashboard', [App\Http\Controllers\DashBoardController::class, 'index'])->name('dashboard');
+
+
 
 
 Route::get('/', [App\Http\Controllers\ProductController::class, 'productList'])->name('products.list');
@@ -53,27 +56,22 @@ Route::post('clear', [App\Http\Controllers\CartController::class, 'clearAllCart'
 
 
 
-// Route::get('clear', [App\Http\Controllers\API\TambonController::class, 'index'])->name('tambon');
+// Route::get('tambon', [App\Http\Controllers\API\TambonController::class, 'index'])->name('tambon');
 
 
-// Route::get('/tambon', [App\Http\Controllers\API\TambonController::class, 'getProvinces'])->name('tambon');
-// Route::get('/tambon', [App\Http\Controllers\API\TambonController::class, 'getAmphoes'])->name('tambon');
-// Route::get('/tambon', [App\Http\Controllers\API\TambonController::class, 'getTambons'])->name('tambon');
-// Route::get('/tambon', [App\Http\Controllers\API\TambonController::class, 'getZipcodes'])->name('tambon');
-
-
-// Route::get('/tambon', function () {
-//     $provinces = Tambon::select('province')->distinct()->get();
-//     $amphoes = Tambon::select('amphoe')->distinct()->get();
-//     $tambons = Tambon::select('tambon')->distinct()->get();
-//     return view("tambon/index", compact('provinces','amphoes','tambons'));
-// });
 
 
 
 Route::get('/tambon', function () {
-    return view("tambon/index");
-
+    $provinces = App\Models\Tambon::select('province')->distinct()->get();
+    $amphoes = App\Models\Tambon::select('amphoe')->distinct()->get();
+    $tambons = App\Models\Tambon::select('tambon')->distinct()->get();
+    return view("tambon/index", compact('provinces','amphoes','tambons'));
 });
+
+
+// Route::get('/tambon', [App\Http\Controllers\API\TambonController::class, 'index'])->name('tambon.index');
+// Route::get('/tambon', [App\Http\Controllers\API\TambonController::class, 'index'])
+// Route::get('/tambon', [App\Http\Controllers\TambonController::class, 'index']);
 
 
